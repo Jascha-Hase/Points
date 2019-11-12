@@ -17,10 +17,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    LoginProfilesComponent,
-    ListWithPointsComponent,
-    ListWithoutPointsComponent,
-    
+    ListWithPointsComponent,    
   ],
   imports: [
     BrowserModule,
