@@ -1,0 +1,52 @@
+.login{
+    background: #FFF;
+    width: 1200px;
+    margin: auto;
+    border: 8px solid #FFF;
+    text-align: center;
+}
+.border{
+    border: 3px solid #242F39;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 55px;
+}
+input{
+    width: 70%;
+    margin-bottom: 10px;
+    background: #7A7A7A;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #242F39;
+    border: 1px solid #242F39;
+    border-radius: 4px;
+}
+input:focus { box-shadow: inset 0 -5px 45px #BABABA, 0 1px 1px #BABABA; }
+
+::placeholder {
+    color: #FFF;
+}
+
+button{
+    width: 50%;
+    margin-bottom: 10px;
+    background: #9BBF29;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #242F39;
+    border: 1px solid #9BBF29;
+    border-radius: 50px;
+}
+h1 { color: #313D4D; 
+    text-shadow: 0 0 6px #242F39; 
+    letter-spacing: 1px; 
+    text-align: center; 
+}
+p{
+    color: #313D4D;
+    text-shadow: 1px 1px 1px #BABABA;
+}

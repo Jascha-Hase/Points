@@ -1,0 +1,26 @@
+<div cdkDropListGroup>
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="sortedPoints"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of sortedPoints" cdkDrag>{{item.content}}</div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Points</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="points"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of points" cdkDrag>{{item.content}}</div>
+    </div>
+  </div>
+  <button (click)="save()">Save to Vote</button>
+</div>
