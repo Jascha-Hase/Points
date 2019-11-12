@@ -6,9 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Header/header/header.component';
 import { FooterComponent } from './Footer/footer/footer.component';
 import { LoginComponent } from './Body/login/login.component';
-import { LoginProfilesComponent } from './Body/login-profiles/login-profiles.component';
 import { ListWithPointsComponent } from './Body/Lists/list-with-points/list-with-points.component';
-import { ListWithoutPointsComponent } from './Body/Lists/list-without-points/list-without-points.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
