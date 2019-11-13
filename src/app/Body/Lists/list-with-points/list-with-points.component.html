@@ -1,6 +1,6 @@
 <div cdkDropListGroup>
   <div class="example-container">
-    <h2>To do</h2>
+    <h2>Sorted Points</h2>
 
     <div
       cdkDropList
@@ -22,5 +22,5 @@
       <div class="example-box" *ngFor="let item of points" cdkDrag>{{item.content}}</div>
     </div>
   </div>
-  <button (click)="save()">Save to Vote</button>
+  <button (click)="save()" mat-raised-button>Send your Sorting</button>
 </div>
