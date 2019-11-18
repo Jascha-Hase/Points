@@ -5,9 +5,6 @@
     border: 8px solid #FFF;
     text-align: center;
 }
-button{
-    margin-bottom: 10px;
-}
 .border{
     border: 3px solid #242F39;
     margin-left: 25%;
@@ -35,4 +32,22 @@ p{
   button{
     background: #9BBF29;
     color: #242F39;
+    margin-bottom: 10px;
   }
+  a {
+    display: inline;
+    color: #BABABA;
+    padding: 13px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center; 
+    border: 1px solid #7a7a7a;
+}
+a:hover{
+    background-color: #BaBaBa;
+    color: #FFF;
+}
+.active{
+    background-color: #7a7a7a;
+    color: #FFF;
+}

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Points } from './list-of-points';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-
+import{ LoginComponent } from '../../login/login.component';
+ 
 @Component({
   selector: 'app-list-with-points',
   templateUrl: './list-with-points.component.html',
@@ -9,7 +10,8 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 })
 export class ListWithPointsComponent implements OnInit {
   points: Points[] = [];
-  constructor() {
+  saved: Boolean = false;
+  constructor(private loginComponent: LoginComponent) {
     this.points = [
       {
         id: 1,
@@ -45,6 +47,9 @@ export class ListWithPointsComponent implements OnInit {
   save(){
     this.setLocalStorageDoneTasks(this.sortedPoints);
   }
+  changeSaved(){
+    this.saved = true;
+  }
   private setLocalStorageDoneTasks(sortedPoints: Points[]): void{
     localStorage.setItem('sortedPoints', JSON.stringify({sortedPoints: this.sortedPoints}));
   }
@@ -56,6 +61,5 @@ export class ListWithPointsComponent implements OnInit {
 
   ngOnInit(){
     this.getLocalStorage();
-    console.log('Test');
-  }
+    }
 }

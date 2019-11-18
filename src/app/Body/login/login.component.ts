@@ -7,33 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  openListView: Boolean;
+  loggedIn: Boolean;
   userName: string;
   userPassword: string;
   wrongCombination: Boolean;
-  constructor() { 
-    this.openListView = false;
-   }
+  constructor() {
+    this.loggedIn = false;
+  }
 
   ngOnInit() {
   }
 
-  tryToLogin(){
+  tryToLogin() {
     this.getUserName();
     this.getUserPassword();
-    if(this.userName === 'coyo' && this.userPassword === 'coyo1'){
-      this.openListView = true;
+    if (this.userName === 'coyo' && this.userPassword === 'coyo1') {
+      this.loggedIn = true;
     } else {
-      if(this.userName !== null && this.userPassword !== null){
-      this.userName = '';
-      this.userPassword = '';
-      this.wrongCombination = true;
-    }}
+      if (this.userName !== null && this.userPassword !== null) {
+        this.userName = '';
+        this.userPassword = '';
+        this.wrongCombination = true;
+      }
+    }
   }
-  getUserName(){
+  getUserName() {
     return this.userName;
   }
-  getUserPassword(){
+  getUserPassword() {
     return this.userPassword;
+  }
+  logout() {
+    this.loggedIn = false;
   }
 }

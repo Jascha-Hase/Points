@@ -11,14 +11,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MyMaterials } from './material';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    ListWithPointsComponent,    
+    ListWithPointsComponent
   ],
   imports: [
     BrowserModule,
