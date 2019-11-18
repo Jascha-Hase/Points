@@ -1,7 +1,7 @@
 <body class="login">
-    <div *ngIf="!loggedIn" class="border">
+    <div class="border">
         <h1>Login</h1>
-        <form *ngIf="!loggedIn" (ngSubmit)="tryToLogin()" #login="ngForm">
+        <form (ngSubmit)="tryToLogin()" #login="ngForm">
             <p *ngIf="wrongCombination">Please Try Again</p>
             <mat-form-field class="example-form-field">
                 <input matInput type="text" placeholder="Username" [(ngModel)]="userName" name="userName"
@@ -17,8 +17,3 @@
         </form>
     </div>
 </body>
-<div class="login" *ngIf="loggedIn">
-    <router-outlet>
-        <a [routerLink]="['/vote']" routerLinkActive="active">Vote</a>
-    </router-outlet>
-</div>

@@ -1,7 +1,8 @@
-<form class="background">
-  <div>
-    <app-header></app-header>
-    <app-login></app-login>
-    <app-footer></app-footer>
-  </div>
-</form>
+<div class="background">
+  <app-header></app-header>
+  <!-- <app-login></app-login> -->
+  <mat-card class="content">
+    <router-outlet></router-outlet>
+  </mat-card>
+  <app-footer></app-footer>
+</div>

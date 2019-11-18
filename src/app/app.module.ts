@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './Header/header/header.component';
-import { FooterComponent } from './Footer/footer/footer.component';
-import { LoginComponent } from './Body/login/login.component';
-import { ListWithPointsComponent } from './Body/Lists/list-with-points/list-with-points.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { ListWithPointsComponent } from './list-with-points/list-with-points.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MyMaterials } from './material';
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,7 @@ import { MyMaterials } from './material';
     HeaderComponent,
     FooterComponent,
     LoginComponent,
-    ListWithPointsComponent
+    ListWithPointsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,9 +28,9 @@ import { MyMaterials } from './material';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MyMaterials
+    MyMaterials,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

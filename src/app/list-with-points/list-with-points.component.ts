@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Points } from './list-of-points';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import{ LoginComponent } from '../../login/login.component';
- 
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
+
+import { Points } from './list-of-points';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-list-with-points',
   templateUrl: './list-with-points.component.html',
@@ -11,7 +13,9 @@ import{ LoginComponent } from '../../login/login.component';
 export class ListWithPointsComponent implements OnInit {
   points: Points[] = [];
   saved: Boolean = false;
-  constructor(private loginComponent: LoginComponent) {
+  sortedPoints: Points[] = [];
+
+  constructor(private authService: AuthService, private router: Router) {
     this.points = [
       {
         id: 1,
@@ -29,10 +33,9 @@ export class ListWithPointsComponent implements OnInit {
         priority: 0,
       },
     ];
-    this.save();
-    this.sortedPoints = [];
+    this.sortedPoints = localStorage.getItem('sortedPoints') ? JSON.parse(localStorage.getItem('sortedPoints')).sortedPoints : [];
+    this.points = this.points.filter(newItem => !this.sortedPoints.some(existing => existing.id == newItem.id));
   }
-  sortedPoints: Points[] = [];
 
   drop(event: CdkDragDrop<[]>) {
     if (event.previousContainer === event.container) {
@@ -44,22 +47,30 @@ export class ListWithPointsComponent implements OnInit {
         event.currentIndex);
     }
   }
-  save(){
+  
+  save() {
     this.setLocalStorageDoneTasks(this.sortedPoints);
   }
-  changeSaved(){
+  
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['login']);
+  }
+
+  changeSaved() {
     this.saved = true;
   }
-  private setLocalStorageDoneTasks(sortedPoints: Points[]): void{
-    localStorage.setItem('sortedPoints', JSON.stringify({sortedPoints: this.sortedPoints}));
+
+  private setLocalStorageDoneTasks(sortedPoints: Points[]): void {
+    localStorage.setItem('sortedPoints', JSON.stringify({ sortedPoints: this.sortedPoints }));
   }
-  
-  private getLocalStorage(){
+
+  private getLocalStorage() {
     let localStorageItem = JSON.parse(localStorage.getItem('sortedPoints'));
     return localStorageItem == null ? [] : localStorageItem.sortedPoints;
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getLocalStorage();
-    }
+  }
 }

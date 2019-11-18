@@ -17,7 +17,7 @@
     </div>
     <button *ngIf="!saved" (click)="save() ; changeSaved()" mat-raised-button>Send your Sorting</button>
     <div *ngIf="saved">
-      <button (click)="loginComponent.logout()" mat-raised-button>Let me out</button>
+      <button (click)="logout()" mat-raised-button>Let me out</button>
     </div>
   </div>
 </div>
