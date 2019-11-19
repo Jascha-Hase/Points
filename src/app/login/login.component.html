@@ -1,7 +1,7 @@
 <body class="login">
     <div class="border">
         <h1>Login</h1>
-        <form (ngSubmit)="tryToLogin()" #login="ngForm">
+        <form (ngSubmit)="tryToLogin()" #loginOne="ngForm">
             <p *ngIf="wrongCombination">Please Try Again</p>
             <mat-form-field class="example-form-field">
                 <input matInput type="text" placeholder="Username" [(ngModel)]="userName" name="userName"
@@ -12,8 +12,76 @@
                     required="required">
             </mat-form-field>
             <br>
-            <button [disabled]="!login.form.valid" mat-raised-button>Let me
+            <button class="buttonOne" [disabled]="!loginOne.form.valid" mat-raised-button>Let me
                 in</button>
         </form>
     </div>
+    <br>
+    <hr>
+    <p>Chose One Piers :)</p>
+    <br>
+    <div class="box">
+        <div class="login-img">
+            <div>
+                <h3 class="login-text">SIGN IN</h3>
+            </div>
+        </div>
+        <form #loginTwo="ngForm">
+            <div class="show-content-inLine">
+                <div class="margin-center margin-top">
+                    <h4>Username:</h4>
+                    <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
+                        [floatLabel]="options.value.floatLabel" class="input-field">
+                        <input matInput type="text" placeholder="Username" [(ngModel)]="userName" name="userName"
+                            required>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="show-content-inLine">
+                <div class="margin-center">
+                    <h4>Password:</h4>
+                    <mat-form-field [hideRequiredMarker]="options.value.hideRequired"
+                        [floatLabel]="options.value.floatLabel" class="input-field">
+                        <input matInput type="password" placeholder="Password" [(ngModel)]="userPassword"
+                            name="userPassword" required>
+                    </mat-form-field>
+                </div>
+            </div>
+            <button class="buttonTwo" (click)="tryToLogin()" [disabled]="!loginTwo.form.valid" mat-raised-button>Login</button>
+        </form>
+    </div>
+    <br>
+    <hr>
+    <p>Here are much Angular Materials Parts</p>
+    <br>
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #loginThree="ngForm" class="example-form">
+                <table class="example-full-width" cellspacing="0">
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Username" [(ngModel)]="userName" name="userName" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Password" [(ngModel)]="userPassword" type="password"
+                                    name="userPassword" required>
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [disabled]="!loginThree.form.valid" (click)="tryToLogin()" color="primary">Login</button>
+        </mat-card-actions>
+    </mat-card>
 </body>

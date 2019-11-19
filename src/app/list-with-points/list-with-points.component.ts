@@ -20,17 +20,17 @@ export class ListWithPointsComponent implements OnInit {
       {
         id: 1,
         content: 'Sort Me',
-        priority: 0,
+        discription: 'Fill me with more Infotmation about this Point'
       },
       {
         id: 2,
         content: 'Bottom',
-        priority: 0,
+        discription: 'Fill me with more Infotmation about this Point'
       },
       {
         id: 3,
         content: 'Top',
-        priority: 0,
+        discription: 'Fill me with more Infotmation about this Point'
       },
     ];
     this.sortedPoints = localStorage.getItem('sortedPoints') ? JSON.parse(localStorage.getItem('sortedPoints')).sortedPoints : [];

@@ -28,7 +28,7 @@ p{
     border: 1px solid #242F39;
     border-radius: 4px;
   }
-  button{
+.buttonOne{
     background: #9BBF29;
     color: #242F39;
     margin-bottom: 10px;
@@ -49,4 +49,72 @@ a:hover{
 .active{
     background-color: #7a7a7a;
     color: #FFF;
+}
+.show-content-inLine{
+    display: flex;
+}
+.input-field{
+    color: rgb(85, 85, 85);
+    margin-left: 30px;
+}
+.input-field:active{
+    color: #Bababa;
+}
+.login-img{
+    opacity: 0.8;
+    background-image: url('../../assets/img/login.jpg');
+    height: 180px; 
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.login-text{
+    text-align: center;
+    color: #FFF;
+    font-size: 40px;
+    padding: 10px;
+
+}
+.margin-center{
+    color: rgb(85, 85, 85);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    font-size: larger;
+
+}
+.box{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 670px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    font-family: "Source Sans Pro", sans-serif;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+    color: #7A7A7A !important;
+
+   }
+::ng-deep.mat-form-field-ripple {
+   background-color: #7A7A7A !important;;
+  }
+.margin-top{
+    margin-top: 25px;;
+}
+.buttonTwo{
+    background-color: rgb(85, 85, 85);
+    color: #FFF;
+    margin-top: 20px;
+    justify-content: center;
+    width: 120px;
+    border-radius: 20px;
+}
+.example-card{
+    margin-left: 350px;
+    margin-right: 350px;
+}
+.example-full-width{
+    width: 250px;
 }
