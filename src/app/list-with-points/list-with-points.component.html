@@ -1,0 +1,23 @@
+<div>
+  <div cdkDropListGroup class="login">
+    <div class="example-container">
+      <h2>Sorted Points</h2>
+
+      <div cdkDropList [cdkDropListData]="sortedPoints" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of sortedPoints" cdkDrag>{{item.content}}</div>
+      </div>
+    </div>
+
+    <div class="example-container">
+      <h2>Points</h2>
+
+      <div cdkDropList [cdkDropListData]="points" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of points" cdkDrag>{{item.content}}</div>
+      </div>
+    </div>
+    <button *ngIf="!saved" (click)="save() ; changeSaved()" mat-raised-button>Send your Sorting</button>
+    <div *ngIf="saved">
+      <button (click)="logout()" mat-raised-button>Let me out</button>
+    </div>
+  </div>
+</div>
