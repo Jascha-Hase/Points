@@ -1,19 +1,24 @@
-<body class="login">
-    <div class="border">
-        <h1>Login</h1>
-        <form (ngSubmit)="tryToLogin()" #login="ngForm">
-            <p *ngIf="wrongCombination">Please Try Again</p>
-            <mat-form-field class="example-form-field">
-                <input matInput type="text" placeholder="Username" [(ngModel)]="userName" name="userName"
-                    required="required">
-            </mat-form-field>
-            <mat-form-field class="example-form-field">
-                <input matInput type="password" placeholder="Password" [(ngModel)]="userPassword" name="userPassword"
-                    required="required">
-            </mat-form-field>
-            <br>
-            <button [disabled]="!login.form.valid" mat-raised-button>Let me
-                in</button>
-        </form>
-    </div>
-</body>
+<div class="content">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form #loginThree="ngForm">
+                <mat-form-field>
+                    <input matInput placeholder="Username" [(ngModel)]="userName" name="userName" required>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="Password" [(ngModel)]="userPassword" type="password"
+                        name="userPassword" required>
+                </mat-form-field>
+            </form>
+            <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button [disabled]="!loginThree.form.valid" (click)="tryToLogin()"
+                color="primary">Login</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

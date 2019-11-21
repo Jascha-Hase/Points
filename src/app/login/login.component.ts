@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Router } from '@angular/router';
+import {FormBuilder, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -14,8 +16,15 @@ export class LoginComponent implements OnInit {
   userPassword: string;
   wrongCombination: Boolean;
 
-  constructor(private authService: AuthService, private router: Router) {
+  options: FormGroup;
+
+
+  constructor(private authService: AuthService, private router: Router, fb: FormBuilder) {
     this.loggedIn = false;
+    this.options = fb.group({
+      hideRequired: true,
+      floatLabel: 'auto',
+    });
   }
 
   ngOnInit() {
