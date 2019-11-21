@@ -12,6 +12,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MyMaterials } from './material';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AuthGuardService } from './auth/auth-guard.service';
     FooterComponent,
     LoginComponent,
     ListWithPointsComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
     BrowserAnimationsModule,
     MyMaterials,
   ],
+  exports: [DialogComponent],
+  entryComponents: [DialogComponent],
   providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })

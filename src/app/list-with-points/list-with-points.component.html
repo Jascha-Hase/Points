@@ -1,14 +1,15 @@
 <mat-card>
+    <div class="tooltip">
+        <mat-icon>help_outline</mat-icon>
+        <span class="tooltiptext">Click on the Points to se discription</span>
+    </div>
   <div cdkDropListGroup class="login">
     <div class="example-container">
       <h2>Sorted Points</h2>
 
       <div cdkDropList [cdkDropListData]="sortedPoints" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of sortedPoints" cdkDrag>{{item.content}}
-          <p *cdkDragPreview class="p-style">
-            <span class="span-style">{{item.content}}:</span>
-            <br>
-            {{item.discription}}</p>
+        <div class="example-box" *ngFor="let item of sortedPoints" cdkDrag>
+          <button class="button-to-dialog" mat-raised-button (click)="openDialog(item)">{{item.content}}</button>
         </div>
       </div>
     </div>
@@ -17,17 +18,14 @@
       <h2>Points</h2>
 
       <div cdkDropList [cdkDropListData]="points" class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of points" cdkDrag>{{item.content}}
-          <p class="p-style" *cdkDragPreview>
-            <span class="span-style">{{item.content}}:</span>
-            <br>
-            {{item.discription}}</p>
+        <div class="example-box" *ngFor="let item of points" cdkDrag>
+            <button class="button-to-dialog" mat-raised-button (click)="openDialog(item)">{{item.content}}</button>
         </div>
       </div>
     </div>
-    <button *ngIf="!saved" (click)="save() ; changeSaved()" mat-raised-button>Send your Sorting</button>
+    <button class="button" *ngIf="!saved" (click)="save() ; changeSaved()" mat-raised-button>Send your Sorting</button>
     <div *ngIf="saved">
-      <button (click)="logout()" mat-raised-button>Let me out</button>
+      <button class="button" (click)="logout()" mat-raised-button>Let me out</button>
     </div>
   </div>
 </mat-card>

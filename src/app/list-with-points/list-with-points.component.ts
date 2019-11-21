@@ -1,9 +1,14 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
-
+import {MatDialog} from '@angular/material/dialog';
 import { Points } from './list-of-points';
 import { Router } from '@angular/router';
+import { DialogComponent } from '../dialog/dialog.component'
+
+export interface DialogData {
+  points: Points[];
+}
 
 @Component({
   selector: 'app-list-with-points',
@@ -15,7 +20,7 @@ export class ListWithPointsComponent implements OnInit {
   saved: Boolean = false;
   sortedPoints: Points[] = [];
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) {
     this.points = [
       {
         id: 1,
@@ -35,6 +40,12 @@ export class ListWithPointsComponent implements OnInit {
     ];
     this.sortedPoints = localStorage.getItem('sortedPoints') ? JSON.parse(localStorage.getItem('sortedPoints')).sortedPoints : [];
     this.points = this.points.filter(newItem => !this.sortedPoints.some(existing => existing.id == newItem.id));
+  }
+
+  openDialog(points): void{
+    const dialogRef = this.dialog.open(DialogComponent, {data: {
+      content: points
+    }})
   }
 
   drop(event: CdkDragDrop<[]>) {
