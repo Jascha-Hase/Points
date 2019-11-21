@@ -13,6 +13,8 @@ import { MyMaterials } from './material';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { DialogComponent } from './dialog/dialog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpComponent } from './http/http.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { DialogComponent } from './dialog/dialog.component';
     LoginComponent,
     ListWithPointsComponent,
     DialogComponent,
+    HttpComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +34,11 @@ import { DialogComponent } from './dialog/dialog.component';
     FormsModule,
     BrowserAnimationsModule,
     MyMaterials,
+    HttpClientModule
   ],
   exports: [DialogComponent],
   entryComponents: [DialogComponent],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, HttpComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

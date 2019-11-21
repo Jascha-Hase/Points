@@ -1,10 +1,11 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Points } from './list-of-points';
 import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component'
+import { HttpComponent } from '../http/http.component';
 
 export interface DialogData {
   points: Points[];
@@ -16,28 +17,12 @@ export interface DialogData {
   styleUrls: ['./list-with-points.component.scss']
 })
 export class ListWithPointsComponent implements OnInit {
-  points: Points[] = [];
+  public points = [];
   saved: Boolean = false;
   sortedPoints: Points[] = [];
 
-  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog) {
-    this.points = [
-      {
-        id: 1,
-        content: 'Sort Me',
-        discription: 'Fill me with more Infotmation about this Point'
-      },
-      {
-        id: 2,
-        content: 'Bottom',
-        discription: 'Fill me with more Infotmation about this Point'
-      },
-      {
-        id: 3,
-        content: 'Top',
-        discription: 'Fill me with more Infotmation about this Point'
-      },
-    ];
+  constructor(private authService: AuthService, private router: Router, public dialog: MatDialog, private _pointsService: HttpComponent) {
+    
     this.sortedPoints = localStorage.getItem('sortedPoints') ? JSON.parse(localStorage.getItem('sortedPoints')).sortedPoints : [];
     this.points = this.points.filter(newItem => !this.sortedPoints.some(existing => existing.id == newItem.id));
   }
@@ -83,5 +68,7 @@ export class ListWithPointsComponent implements OnInit {
 
   ngOnInit() {
     this.getLocalStorage();
+    this._pointsService.getPoints()
+      .subscribe(data => this.points = data);
   }
 }
